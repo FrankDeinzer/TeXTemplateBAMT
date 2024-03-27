@@ -1,0 +1,163 @@
+%% bt: Bachelor Thesis
+%% mt: Master Thesis
+\documentclass[ngerman,bt]{dbvdoc}
+
+% Alternative Loesunge:
+% - use utf8 on your home computer
+% - use an editor capable of converting character-sets and editing utf8 files
+%   on a latin1 system (some versions of vi do)
+% - use \"{a}, \"{o}, \"{u}, \ss{} instead of non-ascii characters
+
+\usepackage[utf8]{inputenc}
+%%\usepackage[utf8,latin1]{inputenc}  %% Alternative Eingabe
+\usepackage{babel}
+\usepackage[babel,german=quotes]{csquotes}
+\usepackage[backend=biber,maxnames=99,language=german,bibstyle=alphabetic,sortcites=true,labelalpha=true]{biblatex}
+\usepackage{hyperref}
+\usepackage{breakurl}
+%\usepackage[hyphenbreaks]{breakurl}  %% Falls in \url auch bei Bindestrich getrennt werden soll. Weitere Optionen: RTFM
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{psfrag}
+\usepackage{color}
+
+% \setcounter{lotdepth}{2}
+
+% ++ es werden keine underfull hboxes als Fehler ausgegeben,
+%    da das ja nur heißt, dass die Seite noch nicht ganz voll ist
+\hbadness=10000
+\clubpenalty = 10000 % schliesst Schusterjungen aus
+\widowpenalty = 10000 % schliesst Hurenkinder aus
+
+\pagenumbering{roman}
+
+%\bibliographystyle{galpha2a}
+\renewcommand*{\labelalphaothers}{\textsuperscript{}} %% plus-zeichen abschalten
+\bibliography{doc}
+\addbibresource{doc.bib}
+\addbibresource{lit.bib}
+
+%%%%%%%%%%%%%%
+%%% MACROS %%%
+%%%%%%%%%%%%%%
+%% if macros shall be used, put them into a separate file 'macros.tex'
+%%\input{macros}
+
+%%%%%%%%%%%%%%%%%%%%
+%%% Worttrennung %%%
+%%%%%%%%%%%%%%%%%%%%
+%% if hyphenation patterns are needed, put them into a separate file 'hyph.tex'
+%%\input{hyph}
+
+
+%%%%%%%%%%%%%%
+%\setcounter{tocdepth}{5}
+%\setcounter{secnumdepth}{5}
+
+\sloppy		%% avoid writing over linebreak
+
+
+\begin{document}
+\clearpage
+  \selectlanguage{\ngerman}
+  \begin{deckblatt}
+    \Titel{Titel Arbeit}
+    \Name{Mustermann}
+    \Vorname{Matthias}
+    \Wohnort{Musterstadt}
+    \BetreuerA{Erstpr\"{u}fer: Prof.~Dr.-Ing.~Frank Deinzer}
+    \BetreuerB{Zweitpr\"{u}ferin: Prof.~Dr.-Ing.~Martina Meier}
+    \Ende{1. YYY 20YY}
+    \Fach{Informatik}  % for Master: \Fach{Informationssysteme}
+    \Schwerpunkt{Medieninformatik}
+    \Angefertigt{Angefertigt an der Fakultät für Informatik und Wirtschaftsinformatik der Technischen Hochschule Würzburg-Schweinfurt/bei der Firma XYZ}
+  \end{deckblatt}
+\clearpage
+\mbox{}
+\vfill
+\begin{center}
+\ifpdf
+	\includegraphics[width=6cm]{qrcode-thesis.png}
+\else
+	\includegraphics[width=6cm]{qrcode-thesis.eps}
+\fi
+\end{center}
+\clearpage
+
+\noindent Hiermit versichere ich, dass ich die vorgelegte Bachelorarbeit/Masterarbeit selbstständig verfasst und noch nicht
+anderweitig zu Prüfungszwecken vorgelegt habe. Alle benutzten Quellen und Hilfsmittel sind
+angegeben, wörtliche und sinngemäße Zitate wurden als solche gekennzeichnet.\\[5mm]
+Würzburg, den\\[20mm]
+(Unterschrift)
+
+\vfill
+
+\noindent Hiermit willige ich ein, dass zum Zwecke der Überprüfung auf Plagiate meine vorgelegte Arbeit in
+digitaler Form an PlagScan übermittelt und diese vorübergehend (max. 5 Jahre)
+in der von PlagScan geführten Datenbank gespeichert wird, sowie persönliche Daten, die Teil dieser
+Arbeit sind, dort hinterlegt werden.
+
+Die Einwilligung ist freiwillig. Ohne diese Einwilligung kann unter Entfernung aller persönlichen
+Angaben und Wahrung der urheberrechtlichen Vorgaben die Plagiatsüberprüfung nicht verhindert
+werden. Die Einwilligung zur Speicherung und Verwendung der persönlichen Daten kann jederzeit
+durch Erklärung gegenüber der Fakultät widerrufen werden.\\[5mm]
+Würzburg, den\\[20mm]
+(ggf. Unterschrift)
+
+\clearpage
+
+\begin{center}
+\bf Übersicht
+\end{center}
+TEXT DEUTSCH
+
+
+\vfill
+\begin{center}
+\bf Abstract
+\end{center}
+TEXT ENGLISCH
+
+\vfill
+\cleardoublepage
+
+\tableofcontents
+
+\cleardoublepage \pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inlucde chapter %%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\include{doc01}   
+\cleardoublepage
+%\include{doc02}   
+%\cleardoublepage
+%% usw.
+\nocite{*}  %% Das ist nur zu Demo-Zwecken da!
+%%%%%%%%%%%%%%
+%%% Anhang %%%
+%%%%%%%%%%%%%%
+%\begin{appendix}
+%\include{doc-a0} 
+%\cleardoublepage
+%\include{doc-a1} 
+%\cleardoublepage
+%%usw...
+%\end{appendix}
+
+%% Literatur
+\addcontentsline{toc}{chapter}{\bibname}
+\printbibliography
+\cleardoublepage
+
+%% Bilderverzeichnis
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures\cleardoublepage
+
+%% Tabellenverzeichnis
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables\cleardoublepage
+
+
+\end{document}
