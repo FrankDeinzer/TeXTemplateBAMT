@@ -1,9 +1,12 @@
+%% Waehle Sprache
+%\def\MyLanguage{english}
+\def\MyLanguage{ngerman}
 %% bt: Bachelor Thesis
 %% mt: Master Thesis
-\documentclass[ngerman,bt]{dbvdoc}
+\documentclass[\MyLanguage,bt]{dbvdoc}
 
-% Alternative Loesunge:
-% - use utf8 on your home computer
+% Eingabe-Loesungen:
+% - Default: use utf8 on your computer
 % - use an editor capable of converting character-sets and editing utf8 files
 %   on a latin1 system (some versions of vi do)
 % - use \"{a}, \"{o}, \"{u}, \ss{} instead of non-ascii characters
@@ -11,8 +14,8 @@
 \usepackage[utf8]{inputenc}
 %%\usepackage[utf8,latin1]{inputenc}  %% Alternative Eingabe
 \usepackage{babel}
-\usepackage[babel,german=quotes]{csquotes}
-\usepackage[backend=biber,maxnames=99,language=german,bibstyle=alphabetic,sortcites=true,labelalpha=true]{biblatex}
+\usepackage[babel,autostyle,german=quotes]{csquotes}
+\usepackage[backend=biber,maxnames=99,language=\MyLanguage,bibstyle=alphabetic,sortcites=true,labelalpha=true]{biblatex}
 \usepackage{hyperref}
 \usepackage{breakurl}
 %\usepackage[hyphenbreaks]{breakurl}  %% Falls in \url auch bei Bindestrich getrennt werden soll. Weitere Optionen: RTFM
@@ -27,8 +30,8 @@
 % ++ es werden keine underfull hboxes als Fehler ausgegeben,
 %    da das ja nur heißt, dass die Seite noch nicht ganz voll ist
 \hbadness=10000
-\clubpenalty = 10000 % schliesst Schusterjungen aus
-\widowpenalty = 10000 % schliesst Hurenkinder aus
+\clubpenalty=10000 % schliesst Schusterjungen aus
+\widowpenalty=10000 % schliesst Hurenkinder aus
 
 \pagenumbering{roman}
 
@@ -60,7 +63,7 @@
 
 \begin{document}
 \clearpage
-  \selectlanguage{\ngerman}
+  \selectlanguage{\MyLanguage}
   \begin{deckblatt}
     \Titel{Titel Arbeit}
     \Name{Mustermann}
